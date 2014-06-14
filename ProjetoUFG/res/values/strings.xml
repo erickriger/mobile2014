@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ProjetoUFG</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_splash">SplashActivity</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="categorias_array">
+        <item>Todas as Notificações</item>
+        <item>Coordenação do Curso</item>
+        <item>Direção de Unidade</item>
+        <item>Biblioteca</item>
+        <item>Pró-Reitoria</item>
+        <item>Reitoria</item>
+        <item>Docentes</item>
+    </string-array>
+
+    <string-array name="exemplos_notificacoes_array">
+        <item>Notificação 1</item>
+        <item>Notificação 2</item>
+        <item>Notificação 3</item>
+        <item>Notificação 4</item>
+        <item>Notificação 5</item>
+        <item>Notificação 6</item>
+        <item>Notificação 7</item>
+        <item>Notificação 8</item>
+        <item>Notificação 9</item>
+        <item>Notificação 10</item>
+        <item>Notificação 11</item>
+        <item>Notificação 12</item>
+        <item>Notificação 13</item>
+        <item>Notificação 14</item>
+        <item>Notificação 15</item>
+        <item>Notificação 16</item>
+        <item>Notificação 17</item>
+        <item>Notificação 18</item>
+        <item>Notificação 19</item>
+        <item>Notificação 20</item>
+    </string-array>
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+    <string name="action_websearch">Web search</string>
+    <string name="app_not_available">Sorry, there\'s no web browser available</string>
+
+</resources>
