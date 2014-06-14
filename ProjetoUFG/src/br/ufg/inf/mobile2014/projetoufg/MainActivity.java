@@ -2,6 +2,7 @@ package br.ufg.inf.mobile2014.projetoufg;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
@@ -10,6 +11,7 @@ import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -19,6 +21,8 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
+import android.widget.ExpandableListView;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -175,51 +179,46 @@ public class MainActivity extends Activity {
      */
     public static class NotificacaoFragment extends Fragment implements OnItemClickListener {
         public static final String ARG_NOTIFICACAO_NUMBER = "notificacao_number";
-        private ListView listaNotificacoes;
+        private ExpandableListView listaNotificacoes;
+        // Usar SparseArray parece ser mais eficiente para mapear integer para objects do que HashMap
+        private SparseArray<GrupoExpandableList> grupos = new SparseArray<GrupoExpandableList>();
         //private ArrayAdapter<String> listAdapter;
+        NotificacoesExpandableListAdapter adapter;
         
         public NotificacaoFragment() {
             // Empty constructor required for fragment subclasses
         }
 
+//        @Override
+//		public void onCreate(Bundle savedInstanceState) {
+//          super.onCreate(savedInstanceState);
+//          createData();
+//          adapter = new NotificacoesExpandableListAdapter(getActivity(), grupos);
+//        }
+//
+        public void createData() {
+          for (int j = 0; j < 5; j++) {
+            GrupoExpandableList grupo = new GrupoExpandableList("Teste " + j);
+            for (int i = 0; i < 5; i++) {
+              grupo.children.add("Sub Item" + i);
+            }
+            grupos.append(j, grupo);
+          }
+        }
+        
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_lista_notificacoes, container, false);
+        	View rootView = inflater.inflate(R.layout.fragment_lista_notificacoes, container, false);
             int i = getArguments().getInt(ARG_NOTIFICACAO_NUMBER);
             String tipoNotificacao = getResources().getStringArray(R.array.categorias_array)[i];
             
-            List<String> notificacoes = new ArrayList<String>();
-            
-//            for (int cont = 0; cont < 10; cont++) {
-//            	notificacoes.add("Notificação "+(cont+1));
-//            }
-            //Intent intent = new Intent();
-            //notificacoes = intent.getStringArrayListExtra(R.array.exemplos_notificacoes_array);
-//            notificacoes.add("Notificação 1");
-//            notificacoes.add("Notificação 2");
-//            notificacoes.add("Notificação 3");
-//            notificacoes.add("Notificação 4");
-//            notificacoes.add("Notificação 5");
-//            notificacoes.add("Notificação 6");
-//            notificacoes.add("Notificação 7");
-//            notificacoes.add("Notificação 8");
-//            notificacoes.add("Notificação 9");
-//            notificacoes.add("Notificação 10");
-            
-            
-            
-            listaNotificacoes = (ListView) rootView.findViewById(R.id.listView1);
-            //listaNotificacoes.setOnClickListener(this);
-            //final ArrayAdapter<String> adapter = new ArrayAdapter<String>(rootView.getContext(), R.layout.fragment_lista_notificacoes,listaNotificacoes.getId(), notificacoes);
-            //listaNotificacoes.setAdapter(adapter);
-            
-            //listaNotificacoes.setAdapter(new ArrayAdapter<String>(rootView.getContext(), R.layout.fragment_lista_notificacoes, notificacoes));
-//            ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.fragment_lista_notificacoes, notificacoes);
-//            listAdapter = new ArrayAdapter<String>(this, R.layout.fragment_lista_notificacoes, notificacoes);
-            
-//            int imageId = getResources().getIdentifier(tipoNotificacao.toLowerCase(Locale.getDefault()),
-//                            "drawable", getActivity().getPackageName());
-//            ((ImageView) rootView.findViewById(R.id.image)).setImageResource(imageId);
+            //List<String> notificacoes = new ArrayList<String>();
+            createData();
+            adapter = new NotificacoesExpandableListAdapter(getActivity(), grupos);
+            listaNotificacoes = (ExpandableListView) rootView.findViewById(R.id.listViewExpansivel);
+            listaNotificacoes.setAdapter(adapter);
+            //listaNotificacoes.setAdapter((ListAdapter) adapter);
+
             getActivity().setTitle(tipoNotificacao);
             return rootView;
         }

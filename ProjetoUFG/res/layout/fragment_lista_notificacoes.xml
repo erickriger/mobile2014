@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Layout da parte da tela onde aparece a lista de notificacoes -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" 
     android:background="@color/branco_ufg" >
 
-    <ListView
-        android:id="@+id/listView1"
+    <ExpandableListView
+        android:id="@+id/listViewExpansivel"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" 
-        android:entries="@array/exemplos_notificacoes_array">
-    </ListView>
+        android:layout_height="wrap_content" >
+        <!-- android:entries="@array/exemplos_notificacoes_array" -->
+    </ExpandableListView>
 
 </LinearLayout>
