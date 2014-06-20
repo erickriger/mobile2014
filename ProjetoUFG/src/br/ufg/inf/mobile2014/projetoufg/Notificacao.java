@@ -28,4 +28,8 @@ public class Notificacao {
 	public boolean getFoiLido() {
 		return this.foiLido;
 	}
+	
+	public void setFoiLido(boolean foiLido) {
+		this.foiLido = foiLido;
+	}
 }

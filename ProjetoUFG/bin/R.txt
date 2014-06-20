@@ -252,11 +252,11 @@ int id action_bar_root 0x7f05001a
 int id action_bar_subtitle 0x7f050023
 int id action_bar_title 0x7f050022
 int id action_context_bar 0x7f05001d
-int id action_forgot_password 0x7f05004c
+int id action_forgot_password 0x7f05004e
 int id action_menu_divider 0x7f050016
 int id action_menu_presenter 0x7f050017
 int id action_mode_close_button 0x7f050024
-int id action_settings 0x7f05004b
+int id action_settings 0x7f05004d
 int id activity_chooser_view_content 0x7f050025
 int id always 0x7f05000b
 int id beginning 0x7f050011
@@ -315,6 +315,8 @@ int id submit_area 0x7f050039
 int id tabMode 0x7f050002
 int id textViewDetalhes 0x7f050049
 int id textViewGrupoNotificacoes 0x7f05004a
+int id textViewRemetenteNotificacoes 0x7f05004c
+int id textViewTituloNotificacoes 0x7f05004b
 int id title 0x7f05002b
 int id top_action_bar 0x7f050020
 int id up 0x7f050021
@@ -356,7 +358,8 @@ int layout fragment_main 0x7f03001e
 int layout fragment_splash 0x7f03001f
 int layout listrow_detalhes 0x7f030020
 int layout listrow_group 0x7f030021
-int layout support_simple_spinner_dropdown_item 0x7f030022
+int layout listrow_notificacoes_titulo 0x7f030022
+int layout support_simple_spinner_dropdown_item 0x7f030023
 int menu inicial 0x7f0d0000
 int menu login 0x7f0d0001
 int menu main 0x7f0d0002

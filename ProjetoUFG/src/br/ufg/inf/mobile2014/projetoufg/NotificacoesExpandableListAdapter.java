@@ -13,19 +13,20 @@ import android.widget.Toast;
 
 public class NotificacoesExpandableListAdapter extends BaseExpandableListAdapter {
 	// SparseArray parece ser mais eficiente para mapear integer para object
-	private final SparseArray<GrupoExpandableList> grupos;
+	//private final SparseArray<GrupoExpandableList> grupos;
+	private final SparseArray<TituloNotificacoesExpandableList> titulosNotificacoes;
 	public LayoutInflater inflater;
 	public Activity activity;
 	
-	public NotificacoesExpandableListAdapter(Activity act, SparseArray<GrupoExpandableList> grupos) {
+	public NotificacoesExpandableListAdapter(Activity act, SparseArray<TituloNotificacoesExpandableList> titulosNotificacoes) {
 		activity = act;
-		this.grupos = grupos;
+		this.titulosNotificacoes = titulosNotificacoes;
 		inflater = act.getLayoutInflater();
 	}
 	
 	@Override
 	public Object getChild(int grupoPosicao, int childPosicao) {
-		return grupos.get(grupoPosicao).children.get(childPosicao);
+		return titulosNotificacoes.get(grupoPosicao).children.get(childPosicao);
 	}
 
 	@Override
@@ -46,7 +47,8 @@ public class NotificacoesExpandableListAdapter extends BaseExpandableListAdapter
 	    convertView.setOnClickListener(new OnClickListener() {
 	      @Override
 	      public void onClick(View v) {
-	        Toast.makeText(activity, children, Toast.LENGTH_SHORT).show();
+	        
+	    	  Toast.makeText(activity, children, Toast.LENGTH_SHORT).show();
 	      }
 	    });
 	    return convertView;
@@ -54,17 +56,17 @@ public class NotificacoesExpandableListAdapter extends BaseExpandableListAdapter
 
 	@Override
 	public int getChildrenCount(int grupoPosicao) {
-		return grupos.get(grupoPosicao).children.size();
+		return titulosNotificacoes.get(grupoPosicao).children.size();
 	}
 
 	@Override
 	public Object getGroup(int grupoPosicao) {
-		return grupos.get(grupoPosicao);
+		return titulosNotificacoes.get(grupoPosicao);
 	}
 
 	@Override
 	public int getGroupCount() {
-		return grupos.size();
+		return titulosNotificacoes.size();
 	}
 
 	@Override
@@ -75,11 +77,19 @@ public class NotificacoesExpandableListAdapter extends BaseExpandableListAdapter
 	@Override
 	public View getGroupView(int grupoPosicao, boolean isExpanded, View convertView, ViewGroup parent) {
 		if (convertView == null) {
-			convertView = inflater.inflate(R.layout.listrow_group, null);
+			convertView = inflater.inflate(R.layout.listrow_notificacoes_titulo, null);
 		}
-		GrupoExpandableList grupo = (GrupoExpandableList) getGroup(grupoPosicao);
-		((CheckedTextView) convertView).setText(grupo.string);
-		((CheckedTextView) convertView).setChecked(isExpanded);
+		TituloNotificacoesExpandableList titulo = (TituloNotificacoesExpandableList) getGroup(grupoPosicao);
+		//GrupoExpandableList grupo = (GrupoExpandableList) getGroup(grupoPosicao);
+		
+		CheckedTextView textViewTitulo = (CheckedTextView) convertView.findViewById(R.id.textViewTituloNotificacoes);
+		TextView textViewRemetente = (TextView) convertView.findViewById(R.id.textViewRemetenteNotificacoes);
+		textViewRemetente.setText("Teste");
+		textViewTitulo.setText(titulo.titulo);
+		textViewTitulo.setChecked(isExpanded);
+		//((CheckedTextView) convertView) = (R.id.textViewTituloNotificacoes).setText(titulo.titulo);
+		//((CheckedTextView) convertView).setChecked(isExpanded);
+		
 		return convertView;
 	}
 

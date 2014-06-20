@@ -1,0 +1,31 @@
+<!-- Layout do titulo das notificacoes da listview -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/main_background" >
+    
+    <CheckedTextView
+        android:id="@+id/textViewTituloNotificacoes"
+        android:layout_width="wrap_content"
+        android:layout_height="?android:attr/listPreferredItemHeight"
+        android:layout_marginLeft="8dp"      
+        android:gravity="left"
+        android:paddingLeft="32dp"
+        android:paddingTop="8dp" 
+        android:textAlignment="textEnd"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+    <!-- android:drawableRight="@drawable/ic_launcher" -->
+    <TextView 
+        android:id="@+id/textViewRemetenteNotificacoes"
+        android:layout_width="wrap_content"
+        android:layout_height="?android:attr/listPreferredItemHeight"
+        android:layout_marginLeft="8dp"
+        android:gravity="left"
+        android:paddingLeft="32dp"
+        android:paddingTop="26dp"
+        android:textAlignment="textEnd"
+        android:textSize="14sp"
+        android:textStyle="normal" />
+        
+</RelativeLayout>

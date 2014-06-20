@@ -181,8 +181,10 @@ public class MainActivity extends Activity {
         public static final String ARG_NOTIFICACAO_NUMBER = "notificacao_number";
         private ExpandableListView listaNotificacoes;
         // Usar SparseArray parece ser mais eficiente para mapear integer para objects do que HashMap
-        private SparseArray<GrupoExpandableList> grupos = new SparseArray<GrupoExpandableList>();
+        //private SparseArray<GrupoExpandableList> grupos = new SparseArray<GrupoExpandableList>();
         //private ArrayAdapter<String> listAdapter;
+        private SparseArray<TituloNotificacoesExpandableList> titulosNotificacoes = new SparseArray<TituloNotificacoesExpandableList>();
+        
         NotificacoesExpandableListAdapter adapter;
         
         public NotificacaoFragment() {
@@ -196,14 +198,25 @@ public class MainActivity extends Activity {
 //          adapter = new NotificacoesExpandableListAdapter(getActivity(), grupos);
 //        }
 //
-        public void createData() {
-          for (int j = 0; j < 5; j++) {
-            GrupoExpandableList grupo = new GrupoExpandableList("Teste " + j);
-            for (int i = 0; i < 5; i++) {
-              grupo.children.add("Sub Item" + i);
-            }
-            grupos.append(j, grupo);
-          }
+//        public void createData() {
+//          for (int j = 0; j < 5; j++) {
+//            GrupoExpandableList grupo = new GrupoExpandableList("Teste " + j);
+//            for (int i = 0; i < 5; i++) {
+//              grupo.children.add("Sub Item" + i);
+//            }
+//            grupos.append(j, grupo);
+//          }
+//        }
+        
+        public void criarNotificacoes() {
+        	for (int i = 0; i < 5; i++) {
+    			String titulo = "Notificação "+i;
+    			String texto = "Isso é o texto da notificação.";
+    			Notificacao notificacao = new Notificacao("Remetente "+i, titulo, texto);
+    			TituloNotificacoesExpandableList tituloNotificacao = new TituloNotificacoesExpandableList(notificacao.getTitulo(), notificacao.getRementente());
+    			tituloNotificacao.children.add(notificacao.getMensagem());
+    			titulosNotificacoes.append(i, tituloNotificacao);
+    		}
         }
         
         @Override
@@ -213,8 +226,10 @@ public class MainActivity extends Activity {
             String tipoNotificacao = getResources().getStringArray(R.array.categorias_array)[i];
             
             //List<String> notificacoes = new ArrayList<String>();
-            createData();
-            adapter = new NotificacoesExpandableListAdapter(getActivity(), grupos);
+            //createData();
+            //adapter = new NotificacoesExpandableListAdapter(getActivity(), grupos);
+            criarNotificacoes();
+            adapter = new NotificacoesExpandableListAdapter(getActivity(), titulosNotificacoes);
             listaNotificacoes = (ExpandableListView) rootView.findViewById(R.id.listViewExpansivel);
             listaNotificacoes.setAdapter(adapter);
             //listaNotificacoes.setAdapter((ListAdapter) adapter);
