@@ -14,7 +14,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="br.ufg.inf.mobile2014.projetoufg.SplashActivity"
+            android:name="br.ufg.inf.mobile2014.projetoufg.Activities.SplashActivity"
             android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,13 +27,20 @@
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="br.ufg.inf.mobile2014.projetoufg.LoginActivity"
+            android:name="br.ufg.inf.mobile2014.projetoufg.LoginActivity2"
             android:windowSoftInputMode="adjustResize|stateVisible" >
         </activity>
         <activity
-            android:name="br.ufg.inf.mobile2014.projetoufg.MainActivity"
+            android:name="br.ufg.inf.mobile2014.projetoufg.Activities.MainActivity"
             android:label="@string/title_activity_main" >
-            
+        </activity>
+        <activity
+            android:name="br.ufg.inf.mobile2014.projetoufg.Activities.LoginActivity"
+            android:label="@string/title_activity_login" >
+        </activity>
+        <activity
+            android:name="br.ufg.inf.mobile2014.projetoufg.Activities.CadastroActivity"
+            android:label="@string/title_activity_cadastro" >
         </activity>
     </application>
 

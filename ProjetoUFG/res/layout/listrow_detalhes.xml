@@ -15,7 +15,8 @@
         android:gravity="center_vertical"
         android:text="@string/hello_world"
         android:textSize="14sp"
-        android:textStyle="normal" >
+        android:textStyle="normal"
+        android:autoLink="web" >
     </TextView>
 <!-- android:drawableLeft="@drawable/ic_launcher" -->
     <View

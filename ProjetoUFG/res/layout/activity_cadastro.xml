@@ -1,0 +1,103 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/splash_background"
+    tools:context="${packageName}.${activityClass}" >
+    
+    <EditText 
+        android:id="@+id/edittext_usuario_nome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:hint="@string/label_cadastro_usuario"
+        android:textColorHint="@android:color/black"
+        android:textColor="@android:color/white" />
+    
+    <EditText 
+        android:id="@+id/edittext_usuario_senha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:inputType="textPassword" 
+        android:hint="@string/label_cadastro_senha"
+        android:textColorHint="@android:color/black"
+        android:textColor="@android:color/white" />
+    
+    <EditText 
+        android:id="@+id/edittext_usuario_senha_conf"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:inputType="textPassword" 
+        android:hint="@string/label_cadastro_senha_conf" 
+        android:textColorHint="@android:color/black"
+        android:textColor="@android:color/white" />
+    
+    <EditText 
+        android:id="@+id/edittext_usuario_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:inputType="textEmailAddress"
+        android:hint="@string/label_cadastro_email" 
+        android:textColorHint="@android:color/black"
+        android:textColor="@android:color/white" />
+    
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:text="@string/label_cadastro_escolher_disciplina"
+        android:textSize="14sp" 
+        android:textColor="@android:color/black"/>
+    
+    <CheckBox 
+        android:id="@+id/checkboxDisciplina1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label_cadastro_disciplina1" />
+    <CheckBox 
+        android:id="@+id/checkboxDisciplina2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label_cadastro_disciplina2" />
+    <CheckBox 
+        android:id="@+id/checkboxDisciplina3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label_cadastro_disciplina3" />
+    <CheckBox 
+        android:id="@+id/checkboxDisciplina4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label_cadastro_disciplina4" />
+    <CheckBox 
+        android:id="@+id/checkboxDisciplina5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label_cadastro_disciplina5" />
+    
+    <Button 
+        android:id="@+id/button_registrar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:text="@string/button_cadastro_registrar" 
+        android:layout_gravity="center"
+        android:background="@color/azul_escuro_ufg"
+        android:textColor="@color/branco_ufg" />
+            
+</LinearLayout>

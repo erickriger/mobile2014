@@ -7,17 +7,27 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
-import android.widget.CheckedTextView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+/**
+ * Classe que serve de Adapter para a ExpandableList de notificações.
+ * Algumas partes do código dessa classe são uma compilação de uma série
+ * de postagens de fórums como o stackoverflow.com.
+ * 
+ * @author eric
+ */
 public class NotificacoesExpandableListAdapter extends BaseExpandableListAdapter {
-	// SparseArray parece ser mais eficiente para mapear integer para object
-	//private final SparseArray<GrupoExpandableList> grupos;
 	private final SparseArray<TituloNotificacoesExpandableList> titulosNotificacoes;
 	public LayoutInflater inflater;
 	public Activity activity;
 	
+	/**
+	 * Construtor da classe.
+	 * 
+	 * @param act					Activity
+	 * @param titulosNotificacoes	array de titulos de notificações 
+	 */
 	public NotificacoesExpandableListAdapter(Activity act, SparseArray<TituloNotificacoesExpandableList> titulosNotificacoes) {
 		activity = act;
 		this.titulosNotificacoes = titulosNotificacoes;
@@ -46,8 +56,7 @@ public class NotificacoesExpandableListAdapter extends BaseExpandableListAdapter
 	    texto.setText(children);
 	    convertView.setOnClickListener(new OnClickListener() {
 	      @Override
-	      public void onClick(View v) {
-	        
+	      public void onClick(View v) {	        
 	    	  Toast.makeText(activity, children, Toast.LENGTH_SHORT).show();
 	      }
 	    });
@@ -80,15 +89,12 @@ public class NotificacoesExpandableListAdapter extends BaseExpandableListAdapter
 			convertView = inflater.inflate(R.layout.listrow_notificacoes_titulo, null);
 		}
 		TituloNotificacoesExpandableList titulo = (TituloNotificacoesExpandableList) getGroup(grupoPosicao);
-		//GrupoExpandableList grupo = (GrupoExpandableList) getGroup(grupoPosicao);
-		
-		CheckedTextView textViewTitulo = (CheckedTextView) convertView.findViewById(R.id.textViewTituloNotificacoes);
+		TextView textViewTitulo = (TextView) convertView.findViewById(R.id.textViewTituloNotificacoes);
 		TextView textViewRemetente = (TextView) convertView.findViewById(R.id.textViewRemetenteNotificacoes);
-		textViewRemetente.setText("Teste");
-		textViewTitulo.setText(titulo.titulo);
-		textViewTitulo.setChecked(isExpanded);
-		//((CheckedTextView) convertView) = (R.id.textViewTituloNotificacoes).setText(titulo.titulo);
-		//((CheckedTextView) convertView).setChecked(isExpanded);
+		TextView textViewData = (TextView) convertView.findViewById(R.id.textViewDataNotificacoes);
+		textViewData.setText(titulo.getNotificacao().getDataHora());
+		textViewRemetente.setText(titulo.getNotificacao().getRementente());
+		textViewTitulo.setText(titulo.getNotificacao().getTitulo());
 		
 		return convertView;
 	}

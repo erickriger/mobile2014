@@ -3,11 +3,39 @@
 
     <string name="app_name">ProjetoUFG</string>
     <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">Configurações</string>
+    <string name="action_logoff">Sair</string>
     <string name="title_activity_splash">SplashActivity</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
-
+	<string name="u">Usuário</string>
+    <string name="l">Login</string>
+    <string name="r">Cadastre-se</string>
+    <string name="p">Senha</string>
+    <string name="label_cadastro_usuario">Usuário</string>
+    <string name="label_cadastro_senha">Senha</string>
+    <string name="label_cadastro_senha_conf">Confirme a senha</string>
+    <string name="label_cadastro_email">E-mail</string>
+    <string name="label_cadastro_escolher_disciplina">Escolha as suas disciplinas:</string>
+    <string name="label_cadastro_disciplina1">Disciplina 1</string>
+    <string name="label_cadastro_disciplina2">Disciplina 2</string>
+    <string name="label_cadastro_disciplina3">Disciplina 3</string>
+    <string name="label_cadastro_disciplina4">Disciplina 4</string>
+    <string name="label_cadastro_disciplina5">Disciplina 5</string>
+    <string name="button_cadastro_registrar">Registrar</string>
+    
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in_register"><b>Sign in</b> or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="action_forgot_password">Recover lost password</string>
+    <string name="login_progress_signing_in">Signing in&#8230;</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    
     <string-array name="categorias_array">
         <item>Todas as Notificações</item>
         <item>Coordenação do Curso</item>
@@ -17,7 +45,6 @@
         <item>Reitoria</item>
         <item>Docentes</item>
     </string-array>
-
     <string-array name="exemplos_notificacoes_array">
         <item>Notificação 1</item>
         <item>Notificação 2</item>
@@ -40,9 +67,12 @@
         <item>Notificação 19</item>
         <item>Notificação 20</item>
     </string-array>
+
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
     <string name="action_websearch">Web search</string>
     <string name="app_not_available">Sorry, there\'s no web browser available</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="title_activity_cadastro">CadastroActivity</string>
 
 </resources>

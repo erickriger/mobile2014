@@ -43,5 +43,7 @@
         android:choiceMode="singleChoice"
         android:divider="@color/azul_claro_ufg"
         android:dividerHeight="1dp"
-        android:background="@color/azul_escuro_ufg"/>
+        android:background="@color/azul_escuro_ufg" />
+
+    
 </android.support.v4.widget.DrawerLayout>
